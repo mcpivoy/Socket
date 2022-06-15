@@ -8,7 +8,7 @@
 #include <arpa/inet.h>
 #include <pthread.h>
 #include <sys/stat.h>
-#include </home/mcpvioy/Desktop/thread/Server.h>   //这里要填s.h的路径  具体情况自己看
+#include </home/mcpvioy/Socket/Server.h>   //这里要填s.h的路径  具体情况自己看
 
 struct sockaddr_in servaddr, clientaddr[MAXCON];
 socklen_t cliaddr_len;
