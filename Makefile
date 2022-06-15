@@ -1,13 +1,13 @@
-all: s c
+all: Server Client
 .PHONY : all
 
-s:
-	cc -o s s.c -lpthread
+Server:
+	cc -o Server Server.c -lpthread
 
-c:
-	cc -o c c.c -lpthread
+Client:
+	cc -o Client Client.c -lpthread
 
 .PHONY : clean
 clean :
-	rm c s 
+	rm Client Server 
 	
