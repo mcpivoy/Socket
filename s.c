@@ -1,3 +1,4 @@
+/* author:cgx */
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -7,7 +8,7 @@
 #include <arpa/inet.h>
 #include <pthread.h>
 #include <sys/stat.h>
-#include </home/mcpvioy/Desktop/thread/s.h>
+#include </home/mcpvioy/Desktop/thread/Server.h>   //这里要填s.h的路径  具体情况自己看
 
 struct sockaddr_in servaddr, clientaddr[MAXCON];
 socklen_t cliaddr_len;
@@ -43,7 +44,7 @@ int main(){
 		}
 	}
 	
-	printf("Accepting connections ...\n");
+	printf("Accepting connections ...\n");   // 可改 
 	while(1){
 		
 		int NowID = 0;
@@ -86,7 +87,7 @@ inline void sendmsgtoall(int ID){
 }
 inline int Process(int ID){
 	if(buf[ID] == 0) return 0;
-	if(buf[ID][0] == 'n' && buf[ID][1] == '@'){    //这里可改 但要同时修改client的语句 如果你会的话
+	if(buf[ID][0] == '$' && buf[ID][1] == 'n'){    //这里可改 但要同时修改client的语句 如果你会的话
 		strcpy(names[ID], buf[ID]);
 	}
 	char temp[MAXLINE];
