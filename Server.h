@@ -1,5 +1,5 @@
-#ifndef S_H
-#define S_H
+#ifndef SERVER_H
+#define SERVER_H
 
 #define MAXLINE 100
 #define MAXNAME 20
