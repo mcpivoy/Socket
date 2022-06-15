@@ -5,6 +5,6 @@
 
 git clone https://github.com/mcpivoy/Socket.git
 
-cd /Socket
+cd Socket/
 
 make
