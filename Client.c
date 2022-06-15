@@ -9,7 +9,7 @@
 #include <pthread.h>
 #include <stdlib.h>
 #include <sys/stat.h>
-#include </home/mcpvioy/Desktop/thread/c.h>  //改为你c.h的位置 具体情况看你的路径
+#include </home/mcpvioy/Desktop/thread/Client.h>  //改为你c.h的位置 具体情况看你的路径
 
 struct sockaddr_in servaddr;
 char buf[MAXLINE], receivemsg[MAXLINE];
