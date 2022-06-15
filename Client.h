@@ -1,5 +1,5 @@
-#ifndef C_h
-#define C_h
+#ifndef CLIENT_H
+#define CLIENT_H
 
 #define MAXLINE 200
 #define MAXNAME 20
