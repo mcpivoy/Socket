@@ -56,7 +56,7 @@ int main(){
 				if(!used[NowID]) break;
 			if(NowID >= MAXCON - 1){
 				memset(spemsg[NowID], 0, sizeof(spemsg[NowID]));
-				strcpy(spemsg[NowID], "error: The number of people has reached the maximum(2)");
+				strcpy(spemsg[NowID], "error: The number of people has reached the maximum(2)");  //可改  修改为类似于报错的信息
 				sendonemsg(connfd[NowID], spemsg[NowID]);
 				close(connfd[NowID]);
 				continue;
@@ -86,14 +86,14 @@ inline void sendmsgtoall(int ID){
 }
 inline int Process(int ID){
 	if(buf[ID] == 0) return 0;
-	if(buf[ID][0] == 'n' && buf[ID][1] == '@'){
+	if(buf[ID][0] == 'n' && buf[ID][1] == '@'){    //这里可改 但要同时修改client的语句 如果你会的话
 		strcpy(names[ID], buf[ID]);
 	}
 	char temp[MAXLINE];
 	strcpy(temp, buf[ID]);
 	sprintf(buf[ID], "\t\n>> %s: %s",names[ID], temp);
 	memset(spemsg[ID], 0 , sizeof(spemsg[ID]));
-	strcpy(spemsg[ID], "Y0ur InpUt >> ");
+	strcpy(spemsg[ID], "您的输入为 >> ");  //可改
 	strcat(spemsg[ID], temp);
 	strcat(spemsg[ID], "\t\n");
 	sendmsgtoall(ID);
@@ -107,7 +107,7 @@ void *TRD(void *arg){
 		memset(buf[ID], 0, sizeof(buf[ID]));
 		n = read(connfd[ID], buf[ID], MAXLINE);
 		if(n <= 0){
-			sprintf(buf[ID], "(%s:%d)leave", inet_ntop(AF_INET, &clientaddr[ID].sin_addr, str, sizeof(str)), ntohs(clientaddr[ID].sin_port));
+			sprintf(buf[ID], "(%s:%d)离开啦啦啦", inet_ntop(AF_INET, &clientaddr[ID].sin_addr, str, sizeof(str)), ntohs(clientaddr[ID].sin_port)); //可改
 			memset(spemsg[ID], 0, sizeof(spemsg[ID]));
 			sendmsgtoall(ID);
 			close(connfd[ID]);
@@ -115,7 +115,7 @@ void *TRD(void *arg){
 			used[ID] = 0; 
 		}
 		buf[ID][n] = 0;
-		printf("Received from PORT %d: %s\n", ntohs(clientaddr[ID].sin_port), buf[ID]);
+		printf("%s发送了 : \n", buf[ID]);  //可改
 		int q = Process(ID);
 		if(q == 1){
 			close(connfd[ID]);
