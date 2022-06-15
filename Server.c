@@ -116,7 +116,7 @@ void *TRD(void *arg){
 			used[ID] = 0; 
 		}
 		buf[ID][n] = 0;
-		printf("%s发送了 : \n", buf[ID]);  //可改
+		printf("%s 发送了 : %s\n", names[ID], buf[ID]);  //可改
 		int q = Process(ID);
 		if(q == 1){
 			close(connfd[ID]);
