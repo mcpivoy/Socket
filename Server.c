@@ -1,4 +1,5 @@
-/* author:cgx */                //记得删除！
+/* author:cgx */ //记得删除！
+/* 如果改函数名记得去头文件修改 */
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
