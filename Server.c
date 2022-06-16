@@ -1,4 +1,4 @@
-/* author:cgx */
+/* author:cgx */                //记得删除！
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -44,9 +44,9 @@ int main(){
 		}
 	}
 	
-	printf("Accepting connections ...\n");   // 可改 
-	while(1){
-		
+	printf("Accepting connections ...\n");   // 可改
+	/*---或者多printf几行提示语句---*/
+	while(1){	
 		int NowID = 0;
 		for(NowID = 0; NowID < MAXCON - 1; NowID++)
 			if(!used[NowID]) break;  //occupied or not
@@ -92,11 +92,11 @@ inline int Process(int ID){
 	}
 	char temp[MAXLINE];
 	strcpy(temp, buf[ID]);
-	sprintf(buf[ID], "\t\n>> %s: %s",names[ID], temp);
+	sprintf(buf[ID], "\t\n>> %s: %s",names[ID], temp);    //可改 可以去除\t\n 或者多加
 	memset(spemsg[ID], 0 , sizeof(spemsg[ID]));
 	strcpy(spemsg[ID], "您的输入为 >> ");  //可改
 	strcat(spemsg[ID], temp);
-	strcat(spemsg[ID], "\t\n");
+	strcat(spemsg[ID], "\t\n");   //同上
 	sendmsgtoall(ID);
 	return 0;
 }
