@@ -26,7 +26,7 @@ int main(){
 	}
 	
 	/* ---connect server--- */
-	sockfd = socket(AF_INET, SOCK_STREAM, 0);
+	sockfd = socket(AF_INET, SOCK_DGRAM, 0);
 	bzero(&servaddr, sizeof(servaddr));
 	servaddr.sin_family = AF_INET;
 	inet_pton(AF_INET, IP, &servaddr.sin_addr);
@@ -67,7 +67,8 @@ void startlistening(){
 void *listening(){
 	while(1){
 		memset(receivemsg, 0, sizeof(receivemsg));
-		n = read(sockfd, receivemsg, MAXLINE);
+		//n = read(sockfd, receivemsg, MAXLINE);
+		n = recvfrom(socketfd, receivemsg, MAXLINE, 0, NULL, NULL);
 		if (n <= 0){
 			printf("Server down\n");   //如果服务器被关闭就会弹出  可改
 			close(sockfd);
@@ -80,7 +81,8 @@ void *listening(){
 }
 
 void sendonemsg(char *msg){ 
-	write(sockfd, msg, strlen(msg)); 
+	//write(sockfd, msg, strlen(msg)); 
+	sendto(socketfd, msg, strlen(msg), 0, NULL, 0);
 }
 
 void get_name(){
