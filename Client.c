@@ -1,4 +1,5 @@
-/* author:cgx */
+/* author:cgx */ //记得删除！
+/* 如果改函数名记得去头文件修改 */
 
 #include <stdio.h>
 #include <string.h>
@@ -73,7 +74,7 @@ void *listening(){
 			exit(0);
 		}
 		else
-			printf("%s", receivemsg);
+			printf("%s", receivemsg); 
 		if(receivemsg[0]!='E') stop = 0;
 	}
 }
