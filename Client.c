@@ -68,7 +68,7 @@ void *listening(){
 	while(1){
 		memset(receivemsg, 0, sizeof(receivemsg));
 		//n = read(sockfd, receivemsg, MAXLINE);
-		n = recvfrom(socketfd, receivemsg, MAXLINE, 0, NULL, NULL);
+		n = recvfrom(sockfd, receivemsg, MAXLINE, 0, NULL, NULL);
 		if (n <= 0){
 			printf("Server down\n");   //如果服务器被关闭就会弹出  可改
 			close(sockfd);
@@ -82,7 +82,7 @@ void *listening(){
 
 void sendonemsg(char *msg){ 
 	//write(sockfd, msg, strlen(msg)); 
-	sendto(socketfd, msg, strlen(msg), 0, NULL, 0);
+	sendto(sockfd, msg, strlen(msg), 0, NULL, 0);
 }
 
 void get_name(){
