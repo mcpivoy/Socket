@@ -109,7 +109,7 @@ void *TRD(void *arg){
 		while(!used[ID]);  
 		memset(buf[ID], 0, sizeof(buf[ID]));
 		//n = read(connfd[ID], buf[ID], MAXLINE);
-		n = recvfrom(sockfd, receivemsg, MAXLINE, 0, NULL, NULL);
+		n = recvfrom(socket, receivemsg, MAXLINE, 0, NULL, NULL);
 		if(n <= 0){
 			sprintf(buf[ID], "(%s:%d)离开啦啦啦", inet_ntop(AF_INET, &clientaddr[ID].sin_addr, str, sizeof(str)), ntohs(clientaddr[ID].sin_port)); //可改
 			memset(spemsg[ID], 0, sizeof(spemsg[ID]));
